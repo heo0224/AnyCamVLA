@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="AnyCamVLA: Zero-Shot Camera Adaptation for Viewpoint Robust Vision-Language-Action Models" />
+    <title>AnyCamVLA</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600&family=Roboto+Mono&display=swap"
+    rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    
+    
+    <!-- Bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./js/bulma_toggle.js"></script>
+    
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/5fd1dd8417.js" crossorigin="anonymous"></script>
+    
+    <!-- Academicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+    <link rel="icon" href="./assets/camera_switch_96dp.png">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  </head>
+  
+  <body>
+
+    <!-- title / authors / icons -->
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-widescreen has-text-centered">
+          <!-- title -->
+          <h1 class="title is-size-1 is-size-2-mobile publication-title">
+            <span style="display: block; font-size: 1.2em;">
+              <img src="./assets/camera_switch_96dp.png" alt="icon" style="width: 56px; vertical-align: middle; margin-right: 8px;">
+              AnyCamVLA:
+            </span>
+            <span style="display: block; font-size: 0.75em;">
+              Zero-Shot Camera Adaptation for Viewpoint
+            </span>
+            <span style="display: block; font-size: 0.75em;">
+              Robust Vision-Language-Action Models
+            </span>
+          </h1>
+          <div class="is-size-4-tablet publication-institute">
+            <span class="author-block">Under Review<br></span>
+          </div>
+
+          <!-- authors -->
+          <div class="container is-max-desktop has-text-centered author-list">
+            <div class="is-size-6-tablet publication-authors" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <span class="author-blocks"><a href="https://heo0224.github.io/" style="color: inherit;">Hyeongjun Heo<sup>1</sup></a></span>
+              <span class="author-blocks">Seungyeon Woo<sup>1</sup></span>
+              <span class="author-blocks"><a href="https://sangminkim-99.github.io/" style="color: inherit;">Sang Min Kim<sup>1</sup></a></span>
+              <span class="author-blocks"><a href="https://www.junhokim.xyz/" style="color: inherit;">Junho Kim<sup>1</sup></a></span>
+              <span class="author-blocks"><a href="https://twjhlee.github.io/" style="color: inherit;">Junho Lee<sup>1</sup></a></span>
+              <span class="author-blocks"><a href="https://www.gabe-yhlee.com/" style="color: inherit;">Yonghyeon Lee<sup>2</sup></a></span>
+              <span class="author-blocks"><a href="https://3d.snu.ac.kr" style="color: inherit;">Young Min Kim<sup>1</sup></a></span>
+            </div>
+          </div>
+
+          <div class="is-size-6-tablet publication-authors" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2rem;">
+            <span style="white-space: nowrap;">Seoul National University<sup>1</sup></span>
+            <span style="white-space: nowrap;">Massachusetts Institute of Technology<sup>2</sup></span>
+          </div>
+
+          <div class="logo-list">
+            <a class="lab-logo" href="https://3d.snu.ac.kr">
+              <img src="./assets/3dv.png">
+            </a>
+            <span class="affiliation-num">
+              1
+            </span>
+            <a class="lab-logo">
+              <img src="./assets/MIT_logo.png">
+            </a>
+            <span class="affiliation-num-right">
+              2
+            </span>
+          </div>
+          
+          
+          <!-- icons -->
+          <div class="is-size-5 link-blocks">
+            <a class="button link-button is-rounded" href="https://arxiv.org/pdf/2603.05868">
+              <span class="icon">
+                <i class="fa-solid fa-file"></i>
+              </span>
+              <span>Paper</span>
+            </a>
+            <a class="button link-button is-rounded" href="https://arxiv.org/abs/2603.05868">
+              <span class="icon">
+                <i class="ai ai-arxiv"></i>
+              </span>
+              <span>arXiv</span>
+            </a>
+            <a class="button link-button is-rounded" href="https://github.com/heo0224/AnyCamVLA">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>Code (Coming Soon)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- abstract -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="column is-full-width is-centered has-text-centered has-text-left-mobile">
+          <h2 class="subtitle is-size-3 has-text-weight-medium publication-keywords">
+            Abstract
+          </h2>
+          <div class="content has-text-justified">
+            <p>
+              Despite remarkable progress in Vision-Language-Action models (VLAs) for robot manipulation, these large pre-trained models require fine-tuning to be deployed in specific environments.
+              These fine-tuned models are highly sensitive to camera viewpoint changes that frequently occur in unstructured environments.
+              In this paper, we propose a <b>zero-shot camera adaptation framework without additional demonstration data, policy fine-tuning, or architectural modification</b>.
+              Our key idea is to virtually adjust test-time camera observations to match the training camera configuration in real-time.
+              For that, we use a recent feed-forward novel view synthesis model which outputs high-quality target view images, handling both extrinsic and intrinsic parameters.
+              <br><br>
+              This plug-and-play approach preserves the pre-trained capabilities of VLAs and applies to any RGB-based policy.
+              Through extensive experiments on the LIBERO benchmark, our method consistently outperforms baselines that use data augmentation for policy fine-tuning or additional 3D-aware features for visual input.
+              We further validate that our approach constantly enhances viewpoint robustness in real-world robotic manipulation scenarios, including settings with varying camera extrinsics, intrinsics, and freely moving handheld cameras.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">More Content Coming Soon</h2>
+        <div class="content has-text-centered">
+          <p class="subtitle is-5">
+            Detailed method descriptions, experiment results, demo videos,
+            and code release will be available soon. Stay tuned!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer section -->
+    <footer class="footer" style="padding-top: 1rem">
+      <!-- navigation -->
+      <a role="button" class="navbar-burger" data-target="moreResearch" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+      <div class="navbar-menu" id="moreResearch">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center">
+          <div class="block is-flex" style="margin-bottom: 0px">
+            <a class="navbar-item" href="">
+              <span class="icon">
+                <i class="fas fa-home"></i>
+              </span>
+            </a>
+            <a class="navbar-item" href="">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- license -->
+      <div class="content has-text-centered" style="margin-top: 1.6rem">
+        <p>
+          This website is licensed under a
+          <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License
+          </a>.
+        </p>
+      </div>
+    </footer>
+
+  </body>
+
+</html>
