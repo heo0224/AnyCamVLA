@@ -53,7 +53,7 @@
             </span>
           </h1>
           <div class="is-size-4-tablet publication-institute">
-            <span class="author-block">Under Review<br></span>
+            <span class="author-block">IROS 2026<br></span>
           </div>
 
           <!-- authors -->
@@ -111,46 +111,490 @@
               <span>Code (Coming Soon)</span>
             </a>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- abstract -->
-    <section class="section">
-      <div class="container is-max-desktop">
-        <div class="column is-full-width is-centered has-text-centered has-text-left-mobile">
-          <h2 class="subtitle is-size-3 has-text-weight-medium publication-keywords">
-            Abstract
-          </h2>
-          <div class="content has-text-justified">
-            <p>
-              Despite remarkable progress in Vision-Language-Action models (VLAs) for robot manipulation, these large pre-trained models require fine-tuning to be deployed in specific environments.
-              These fine-tuned models are highly sensitive to camera viewpoint changes that frequently occur in unstructured environments.
-              In this paper, we propose a <b>zero-shot camera adaptation framework without additional demonstration data, policy fine-tuning, or architectural modification</b>.
-              Our key idea is to virtually adjust test-time camera observations to match the training camera configuration in real-time.
-              For that, we use a recent feed-forward novel view synthesis model which outputs high-quality target view images, handling both extrinsic and intrinsic parameters.
-              <br><br>
-              This plug-and-play approach preserves the pre-trained capabilities of VLAs and applies to any RGB-based policy.
-              Through extensive experiments on the LIBERO benchmark, our method consistently outperforms baselines that use data augmentation for policy fine-tuning or additional 3D-aware features for visual input.
-              We further validate that our approach constantly enhances viewpoint robustness in real-world robotic manipulation scenarios, including settings with varying camera extrinsics, intrinsics, and freely moving handheld cameras.
-            </p>
+          <!-- Overview video: motivation, method, and real-world results -->
+          <div class="container is-max-desktop">
+            <video src="./assets/videos/AnycamVLA.mp4?v=2#t=2.7" controls playsinline preload="metadata"
+                   poster="./assets/images/anycamvla_poster.jpg?v=2"
+                   style="display:block;margin:1.8rem auto 0;width:100%;max-width:900px;border-radius:10px;">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Coming Soon Section -->
-    <section class="section">
+    <!-- ===================== MOTIVATION ===================== -->
+    <section class="section" id="motivation">
       <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">More Content Coming Soon</h2>
-        <div class="content has-text-centered">
-          <p class="subtitle is-5">
-            Detailed method descriptions, experiment results, demo videos,
-            and code release will be available soon. Stay tuned!
+        <h2 class="subtitle is-size-3 has-text-weight-medium publication-keywords has-text-centered">
+          Motivation
+        </h2>
+        <div class="content has-text-justified">
+          <p class="body-text">
+            To deploy a Vision-Language-Action model (VLA) in your own setup, you first fine-tune a large
+            pre-trained model on a handful of demonstrations collected in that <b>specific environment</b>&mdash;the
+            same camera placement, the same robot embodiment, the same workspace. A small number of demo
+            trajectories is enough to get the robot working in the lab.
+          </p>
+          <p class="body-text">
+            The problem is that these fine-tuned VLAs are <b>remarkably fragile to perturbations</b>. Because they
+            operate directly on 2D RGB observations without explicit spatial supervision, they overfit to the exact
+            configuration seen during training. Recent robustness studies such as <b>LIBERO-Plus</b> quantify this:
+            success rates that exceed 90% on the original setup collapse dramatically the moment any factor is
+            perturbed.
+          </p>
+
+          <p class="table-title" style="margin-top:1.5rem;">
+            VLAs collapse under perturbations &mdash; and <span style="color:#c0392b;">camera changes are by far the worst</span>
+          </p>
+          <div class="table-wrapper">
+            <table class="paper-table">
+              <thead>
+                <tr>
+                  <th class="row-label">Model</th>
+                  <th>Original</th>
+                  <th class="cam-col">Camera</th>
+                  <th>Robot</th>
+                  <th>Language</th>
+                  <th>Light</th>
+                  <th>Background</th>
+                  <th>Noise</th>
+                  <th>Layout</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="row-label">OpenVLA</td><td>76.5</td><td class="cam-col">1.1</td><td>4.1</td><td>26.8</td><td>4.4</td><td>25.3</td><td>19.3</td><td>31.6</td></tr>
+                <tr><td class="row-label">OpenVLA-OFT</td><td>97.1</td><td class="cam-col">59.7</td><td>37.2</td><td>81.5</td><td>85.8</td><td>92.4</td><td>76.7</td><td>77.1</td></tr>
+                <tr><td class="row-label">OpenVLA-OFT<sub>w</sub></td><td>95.3</td><td class="cam-col">16.8</td><td>43.7</td><td>73.2</td><td>68.2</td><td>92.5</td><td>51.4</td><td>72.3</td></tr>
+                <tr><td class="row-label">OpenVLA-OFT<sub>m</sub></td><td>97.6</td><td class="cam-col">57.9</td><td>30.6</td><td>83.6</td><td>91.6</td><td>83.6</td><td>76.3</td><td>73.2</td></tr>
+                <tr><td class="row-label">&pi;<sub>0</sub></td><td>94.2</td><td class="cam-col">15.8</td><td>6.6</td><td>61.0</td><td>79.6</td><td>78.5</td><td>79.4</td><td>70.4</td></tr>
+                <tr><td class="row-label">&pi;<sub>0</sub>-fast</td><td>85.5</td><td class="cam-col">66.4</td><td>24.8</td><td>63.3</td><td>73.0</td><td>67.7</td><td>75.8</td><td>70.3</td></tr>
+                <tr><td class="row-label">Nora</td><td>87.9</td><td class="cam-col">4.0</td><td>41.1</td><td>67.0</td><td>31.0</td><td>50.5</td><td>17.6</td><td>63.9</td></tr>
+                <tr><td class="row-label">WorldVLA</td><td>79.1</td><td class="cam-col">0.3</td><td>30.2</td><td>44.2</td><td>29.4</td><td>14.5</td><td>12.2</td><td>39.4</td></tr>
+                <tr><td class="row-label">UniVLA</td><td>95.2</td><td class="cam-col">4.3</td><td>50.3</td><td>71.8</td><td>59.1</td><td>80.0</td><td>25.3</td><td>34.3</td></tr>
+                <tr><td class="row-label">RIPT-VLA</td><td>97.5</td><td class="cam-col">58.3</td><td>36.7</td><td>80.1</td><td>87.9</td><td>90.4</td><td>73.8</td><td>76.5</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="figure-caption">
+            Task success rate (%) of recent VLAs under each perturbation factor, reproduced from
+            <b>LIBERO-Plus</b> (Fei <i>et&nbsp;al.</i>, 2025), Table&nbsp;1. Across nearly every model, the
+            <span style="color:#c0392b;">camera</span> column shows the largest degradation&mdash;dropping to single
+            digits for several policies&mdash;making <b>camera viewpoint</b> the single most critical failure mode.
+          </p>
+
+          <p class="body-text" style="margin-top:1.2rem;">
+            <b>We tackle exactly this camera sensitivity of VLAs.</b> Even minor, unavoidable shifts in everyday
+            unstructured environments break the policy&mdash;for example, we observe that a mere 3&nbsp;cm shift in
+            the wrist camera can halve the success rate&mdash;yet the end-to-end nature of VLAs normally forces you
+            to recollect demonstrations and re-fine-tune the entire model after every change.
           </p>
         </div>
       </div>
     </section>
+
+    <!-- ===================== METHOD / IDEA ===================== -->
+    <section class="section" id="method">
+      <div class="container is-max-desktop">
+        <h2 class="subtitle is-size-3 has-text-weight-medium publication-keywords has-text-centered">
+          Our Idea: Adapt the View, Not the Policy
+        </h2>
+        <div class="paper-figure" style="margin-top:1rem;">
+          <video src="./assets/videos/CameraAdaptation.mp4" autoplay loop muted playsinline controls
+                 poster="./assets/images/CameraAdaptation_poster.jpg" style="max-width:100%;height:auto;border-radius:8px;">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="content has-text-justified">
+          <p class="body-text">
+            Our approach is simple yet effective: <b>keep the policy frozen and only adapt the input view in
+            real time</b>. Instead of retraining the VLA to tolerate new camera placements, we
+            <b>virtually move the camera back to the canonical view</b>&mdash;the viewpoint the policy was trained
+            on&mdash;and render the scene from there. The frozen policy then sees exactly the kind of image it
+            expects, regardless of where the real camera actually is.
+          </p>
+          <p class="body-text">
+            To do this, we use a <b>feed-forward novel view synthesis (FFNVS) model</b>&mdash;<b>LVSM</b> in our
+            paper&mdash;as a plug-and-play camera-adaptation module. As shown in the video above, at every control
+            step it takes the live test-time observations and synthesizes the corresponding training-view
+            image&mdash;the <i>virtual view</i>&mdash;in a single forward pass, which is then simply fed to any
+            RGB-based VLA with <b>no policy fine-tuning and no architectural modification</b>. Because the module
+            handles only visual input and runs at ~30&nbsp;Hz&mdash;faster than the ~10&nbsp;Hz VLA control
+            loop&mdash;it adds negligible overhead and naturally handles changes in both extrinsics (pose) and
+            intrinsics (focal length), working across diverse setups and even freely moving <b>handheld
+            cameras</b> such as an iPhone, ZED, and RealSense.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RESULTS ===================== -->
+    <section class="section" id="results">
+      <div class="container is-max-desktop">
+        <h2 class="subtitle is-size-3 has-text-weight-medium publication-keywords has-text-centered">
+          Results
+        </h2>
+
+        <!-- Takeaway 1 -->
+        <div class="takeaway">
+          <span class="takeaway-tag">TAKEAWAY 1</span>
+          <p><b>Feed-forward novel view synthesis dramatically improves viewpoint robustness.</b>
+          By adapting observations back to the training view, our method keeps the policy near its original success
+          rate even under large camera shifts (up to 15&nbsp;cm translation and 60&deg; rotation), where the base
+          policies collapse.</p>
+        </div>
+
+        <p class="table-title" style="margin-top:1.5rem;">
+          Table&nbsp;I &mdash; Success rate (%) on unseen <b>agent</b> camera viewpoints (LIBERO-Long)
+        </p>
+        <div class="table-wrapper">
+          <table class="paper-table">
+            <thead>
+              <tr>
+                <th class="row-label">Method</th>
+                <th class="ref-col">Original</th>
+                <th>Small</th><th>Medium</th><th>Large</th><th>Average</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="row-label">OpenVLA-OFT</td><td class="ref-col">94.5</td><td>79.6</td><td>8.8</td><td>10.4</td><td>32.9</td></tr>
+              <tr><td class="row-label">&pi;<sub>0.5</sub></td><td class="ref-col">92.4</td><td>85.6</td><td>46.8</td><td>14.6</td><td>49.0</td></tr>
+              <tr><td class="row-label">&pi;<sub>0.5</sub><sup>*</sup> <span style="font-size:0.78em;color:#777;">(data aug.)</span></td><td class="ref-col">79.6<sup>&dagger;</sup></td><td>76.4</td><td>75.0</td><td>71.6</td><td>74.3</td></tr>
+              <tr><td class="row-label">GeoAwareVLA</td><td class="ref-col">93.0</td><td>86.0</td><td>83.6</td><td>79.0</td><td>82.9</td></tr>
+              <tr class="ours-row"><td class="row-label">Ours-OV</td><td class="ref-col">94.5</td><td>89.6</td><td>79.4</td><td>67.6</td><td>78.9</td></tr>
+              <tr class="ours-row"><td class="row-label">Ours-&pi;</td><td class="ref-col">92.4</td><td class="best">91.0</td><td class="best">88.6</td><td class="best">86.2</td><td class="best">88.6</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="figure-caption">
+          Results on the <b>LIBERO-Long</b> suite under agent camera perturbation. The
+          <b>Original</b> column is the unperturbed reference. Base policies collapse as the perturbation level
+          grows from Small &rarr; Medium &rarr; Large (&pi;<sub>0.5</sub> falls from 92.4% original to 14.6% under
+          large shifts), while our adaptation keeps the frozen policy near its original performance&mdash;
+          <b>Ours-&pi; reaches 88.6% average</b>, close to its 92.4% original.
+          <span style="color:#143163;font-weight:600;">Bold</span> marks the best result under perturbation.
+          <br><sup>&dagger;</sup>The viewpoint-augmented dataset (&pi;<sub>0.5</sub><sup>*</sup>) is randomly sampled and
+          does not contain the original view, so fine-tuning lowers its original-view performance.
+        </p>
+
+        <p class="table-title" style="margin-top:2rem;">
+          Table&nbsp;II &mdash; Success rate (%) on unseen <b>wrist</b> camera viewpoints (LIBERO-Long)
+        </p>
+        <div class="table-wrapper">
+          <table class="paper-table">
+            <thead>
+              <tr>
+                <th class="row-label">Method</th>
+                <th class="ref-col">Original</th>
+                <th>Small</th><th>Medium</th><th>Large</th><th>Average</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="row-label">&pi;<sub>0.5</sub></td><td class="ref-col">92.4</td><td>40.8</td><td>39.8</td><td>5.2</td><td>28.6</td></tr>
+              <tr><td class="row-label">&pi;<sub>0.5</sub><sup>*</sup> <span style="font-size:0.78em;color:#777;">(data aug.)</span></td><td class="ref-col">79.6<sup>&dagger;</sup></td><td>84.0</td><td>84.0</td><td>81.2</td><td>83.1</td></tr>
+              <tr><td class="row-label">GeoAwareVLA</td><td class="ref-col">93.0</td><td>1.6</td><td>5.0</td><td>9.0</td><td>5.2</td></tr>
+              <tr class="ours-row"><td class="row-label">Ours-&pi;</td><td class="ref-col">92.4</td><td class="best">91.8</td><td class="best">89.6</td><td class="best">84.4</td><td class="best">88.6</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="figure-caption">
+          Under the harder <b>wrist</b> camera perturbation, the representation-centric GeoAwareVLA collapses to
+          below 10% because its 3D features are anchored to the wrist frame, while our method&mdash;synthesizing
+          photorealistic canonical views&mdash;remains robust at <b>88.6%</b> average. The <b>Original</b> column is
+          the unperturbed reference. <sup>&dagger;</sup>&pi;<sub>0.5</sub><sup>*</sup>'s augmented dataset does not
+          contain the original view.
+        </p>
+
+        <!-- Takeaway 2 -->
+        <div class="takeaway" style="margin-top:2.5rem;">
+          <span class="takeaway-tag">TAKEAWAY 2</span>
+          <p><b>Zero-shot view adaptation beats fine-tuning with data augmentation.</b>
+          The common alternative&mdash;augmenting demonstrations with novel viewpoints and fine-tuning the
+          policy&mdash;is costly and unreliable: it requires demonstrations from many tasks and suffers
+          <i>catastrophic forgetting</i> on the original view. Our frozen-policy approach avoids both, with no extra
+          demonstrations or training.</p>
+        </div>
+        <div class="paper-figure">
+          <img src="./assets/images/finetuning.png" alt="Zero-shot adaptation vs. fine-tuning with data augmentation" style="max-width:720px;" />
+        </div>
+        <p class="figure-caption">
+          Fine-tuning &pi;<sub>0.5</sub> on viewpoint-augmented data (&pi;<sub>0.5</sub><sup>*</sup>) over 1 / 5 / 10
+          tasks. <b>(Left)</b> Success on the <i>original</i> view steadily declines as training progresses&mdash;a
+          sign of catastrophic forgetting. <b>(Right)</b> Even with all 10 tasks, success on <i>unseen</i> views
+          plateaus well below our zero-shot method (<b style="color:#d2691e;">Ours-&pi;</b>, dashed), which requires
+          no fine-tuning at all.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== REAL-WORLD ===================== -->
+    <section class="section" id="real-world">
+      <div class="container is-max-desktop">
+        <h2 class="subtitle is-size-3 has-text-weight-medium publication-keywords has-text-centered">
+          Real-World Experiments
+        </h2>
+        <!-- Camera setting explanation -->
+        <div class="paper-figure" style="margin-top:1rem;">
+          <img src="./assets/images/real_setup.png" alt="Real-world camera setup" style="max-width:520px;width:100%;border-radius:8px;" />
+        </div>
+        <p class="figure-caption">
+          <b>Camera setup.</b> We use a ZED stereo camera providing two input views that serve as the training
+          views (<span style="color:#2e9e3f;font-weight:600;">green circles</span>). At test time, we replace the
+          right-side view with the view from another camera placed at a different position
+          (<span style="color:#d12b2b;font-weight:600;">red circle</span>), and our feed-forward novel view
+          synthesis renders it back to the original right training view.
+        </p>
+
+        <!-- Per-task demos: swipe or use arrows to switch tasks -->
+        <div class="swiper demo-swiper realworld-swiper">
+          <div class="swiper-wrapper">
+
+            <!-- Lemon -->
+            <div class="swiper-slide">
+              <div class="video-row">
+                <figure>
+                  <video src="./assets/videos/lemon/input_0_cam_1_left.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Input View 1<br><span class="vc-sub">left (unchanged)</span></figcaption>
+                </figure>
+                <figure>
+                  <video src="./assets/videos/lemon/input_1_cam_2_left.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Input View 2<br><span class="vc-sub">right &rarr; another camera</span></figcaption>
+                </figure>
+                <figure>
+                  <video src="./assets/videos/lemon/synth_1_cam_1_right.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Synthesized View<br><span class="vc-sub">adapted to training view</span></figcaption>
+                </figure>
+                <figure>
+                  <video src="./assets/videos/lemon/gt_1_cam_1_right.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Ground Truth<br><span class="vc-sub">original right view</span></figcaption>
+                </figure>
+              </div>
+              <p class="figure-caption task-instruction">&ldquo;Pick the lemon and place it in the bowl&rdquo;</p>
+            </div>
+
+            <!-- Tennis ball -->
+            <div class="swiper-slide">
+              <div class="video-row">
+                <figure>
+                  <video src="./assets/videos/tennis/input_0_cam_1_left.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Input View 1<br><span class="vc-sub">left (unchanged)</span></figcaption>
+                </figure>
+                <figure>
+                  <video src="./assets/videos/tennis/input_1_cam_2_left.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Input View 2<br><span class="vc-sub">right &rarr; another camera</span></figcaption>
+                </figure>
+                <figure>
+                  <video src="./assets/videos/tennis/synth_1_cam_1_right.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Synthesized View<br><span class="vc-sub">adapted to training view</span></figcaption>
+                </figure>
+                <figure>
+                  <video src="./assets/videos/tennis/gt_1_cam_1_right.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Ground Truth<br><span class="vc-sub">original right view</span></figcaption>
+                </figure>
+              </div>
+              <p class="figure-caption task-instruction">&ldquo;Put the tennis ball in the box and close the box&rdquo;</p>
+            </div>
+
+            <!-- Tulip -->
+            <div class="swiper-slide">
+              <div class="video-row">
+                <figure>
+                  <video src="./assets/videos/tulip/input_0_cam_1_left.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Input View 1<br><span class="vc-sub">left (unchanged)</span></figcaption>
+                </figure>
+                <figure>
+                  <video src="./assets/videos/tulip/input_1_cam_2_left.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Input View 2<br><span class="vc-sub">right &rarr; another camera</span></figcaption>
+                </figure>
+                <figure>
+                  <video src="./assets/videos/tulip/synth_1_cam_1_right.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Synthesized View<br><span class="vc-sub">adapted to training view</span></figcaption>
+                </figure>
+                <figure>
+                  <video src="./assets/videos/tulip/gt_1_cam_1_right.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Ground Truth<br><span class="vc-sub">original right view</span></figcaption>
+                </figure>
+              </div>
+              <p class="figure-caption task-instruction">&ldquo;Pick the red tulip and place it in the white mug&rdquo;</p>
+            </div>
+
+            <!-- Stainless mug -->
+            <div class="swiper-slide">
+              <div class="video-row">
+                <figure>
+                  <video src="./assets/videos/stainlessmug/input_0_cam_1_left.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Input View 1<br><span class="vc-sub">left (unchanged)</span></figcaption>
+                </figure>
+                <figure>
+                  <video src="./assets/videos/stainlessmug/input_1_cam_2_left.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Input View 2<br><span class="vc-sub">right &rarr; another camera</span></figcaption>
+                </figure>
+                <figure>
+                  <video src="./assets/videos/stainlessmug/synth_1_cam_1_right.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Synthesized View<br><span class="vc-sub">adapted to training view</span></figcaption>
+                </figure>
+                <figure>
+                  <video src="./assets/videos/stainlessmug/gt_1_cam_1_right.mp4" autoplay loop muted playsinline></video>
+                  <figcaption>Ground Truth<br><span class="vc-sub">original right view</span></figcaption>
+                </figure>
+              </div>
+              <p class="figure-caption task-instruction">&ldquo;Pick the stainless mug and place it on the plate upright&rdquo;</p>
+            </div>
+
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HANDHELD CAMERAS ===================== -->
+    <section class="section" id="handheld">
+      <div class="container is-max-desktop">
+        <h2 class="subtitle is-size-3 has-text-weight-medium publication-keywords has-text-centered">
+          Freely-Moving Handheld Cameras
+        </h2>
+        <div class="content has-text-justified">
+          <p class="body-text">
+            Using the same two-view setup as above, we now replace the right-side test view with a
+            <b>freely-moving handheld camera</b> that a person waves around <i>while</i> the policy runs. Each
+            camera's pose is tracked with ArUco markers, and our feed-forward novel view synthesis renders the
+            canonical training view in real time &mdash; so the frozen policy keeps working despite the constantly
+            changing <b>camera pose</b>. We test three very different cameras &mdash; an <b>iPhone&nbsp;17&nbsp;Pro</b>,
+            an <b>Intel RealSense&nbsp;D435</b>, and a <b>ZED&nbsp;2</b> &mdash; each with its own intrinsics,
+            showing that our adaptation also generalizes across camera models. Each clip shows, left to right, the
+            raw <b>camera input</b>, the <b>synthesized view</b> fed to the policy, and the resulting
+            <b>policy execution</b>.
+          </p>
+        </div>
+
+        <div class="swiper demo-swiper handheld-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="handheld-row">
+                <figure class="p-sq"><video src="./assets/videos/real_time_demo/panels/iphone_input.mp4" autoplay loop muted playsinline></video><figcaption>Input view</figcaption></figure>
+                <figure class="p-sq"><video src="./assets/videos/real_time_demo/panels/iphone_synth.mp4" autoplay loop muted playsinline></video><figcaption>Synthesized view</figcaption></figure>
+                <figure class="p-wide"><video src="./assets/videos/real_time_demo/panels/iphone_policy.mp4" autoplay loop muted playsinline></video><figcaption>Policy execution</figcaption></figure>
+              </div>
+              <p class="figure-caption task-instruction">iPhone&nbsp;17&nbsp;Pro &mdash; &ldquo;Pick the red tulip and place it in the white mug&rdquo;</p>
+            </div>
+            <div class="swiper-slide">
+              <div class="handheld-row">
+                <figure class="p-sq"><video src="./assets/videos/real_time_demo/panels/realsense_input.mp4" autoplay loop muted playsinline></video><figcaption>Input view</figcaption></figure>
+                <figure class="p-sq"><video src="./assets/videos/real_time_demo/panels/realsense_synth.mp4" autoplay loop muted playsinline></video><figcaption>Synthesized view</figcaption></figure>
+                <figure class="p-wide"><video src="./assets/videos/real_time_demo/panels/realsense_policy.mp4" autoplay loop muted playsinline></video><figcaption>Policy execution</figcaption></figure>
+              </div>
+              <p class="figure-caption task-instruction">Intel RealSense&nbsp;D435 &mdash; &ldquo;Pick the red tulip and place it in the white mug&rdquo;</p>
+            </div>
+            <div class="swiper-slide">
+              <div class="handheld-row">
+                <figure class="p-sq"><video src="./assets/videos/real_time_demo/panels/zed_input.mp4" autoplay loop muted playsinline></video><figcaption>Input view</figcaption></figure>
+                <figure class="p-sq"><video src="./assets/videos/real_time_demo/panels/zed_synth.mp4" autoplay loop muted playsinline></video><figcaption>Synthesized view</figcaption></figure>
+                <figure class="p-wide"><video src="./assets/videos/real_time_demo/panels/zed_policy.mp4" autoplay loop muted playsinline></video><figcaption>Policy execution</figcaption></figure>
+              </div>
+              <p class="figure-caption task-instruction">ZED&nbsp;2 &mdash; &ldquo;Put the tennis ball in the box and close the box&rdquo;</p>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== REFERENCES / CITATIONS ===================== -->
+    <section class="section" id="references">
+      <div class="container is-max-desktop">
+        <h2 class="subtitle is-size-3 has-text-weight-medium publication-keywords has-text-centered">
+          References
+        </h2>
+        <div class="content">
+          <ul class="ref-list">
+            <li>S. Fei <i>et al.</i>, &ldquo;LIBERO-Plus: In-depth Robustness Analysis of Vision-Language-Action Models,&rdquo;
+              <i>arXiv preprint</i>, 2025.
+              <a href="https://arxiv.org/abs/2510.13626" target="_blank">arXiv:2510.13626</a></li>
+            <li>H. Jin <i>et al.</i>, &ldquo;LVSM: A Large View Synthesis Model with Minimal 3D Inductive Bias,&rdquo;
+              <i>ICLR</i>, 2025.
+              <a href="https://arxiv.org/abs/2410.17242" target="_blank">arXiv:2410.17242</a></li>
+            <li>M. J. Kim, C. Finn, and P. Liang, &ldquo;Fine-Tuning Vision-Language-Action Models: Optimizing Speed
+              and Success (OpenVLA-OFT),&rdquo; <i>arXiv preprint</i>, 2025.
+              <a href="https://arxiv.org/abs/2502.19645" target="_blank">arXiv:2502.19645</a></li>
+            <li>Physical Intelligence <i>et al.</i>, &ldquo;&pi;<sub>0.5</sub>: a Vision-Language-Action Model with
+              Open-World Generalization,&rdquo; <i>arXiv preprint</i>, 2025.
+              <a href="https://arxiv.org/abs/2504.16054" target="_blank">arXiv:2504.16054</a></li>
+            <li>A. Abouzeid <i>et al.</i>, &ldquo;GeoAware-VLA: Implicit Geometry Aware Vision-Language-Action
+              Model,&rdquo; <i>arXiv preprint</i>, 2025.
+              <a href="https://arxiv.org/abs/2509.14117" target="_blank">arXiv:2509.14117</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BIBTEX ===================== -->
+    <section class="section" id="bibtex">
+      <div class="container is-max-desktop">
+        <h2 class="subtitle is-size-3 has-text-weight-medium publication-keywords has-text-centered">
+          BibTeX
+        </h2>
+        <div class="content">
+          <div class="bibtex-box"><button class="copy-btn" onclick="copyBibtex(this)">Copy</button><code id="bibtex-content">@article{heo2026anycamvla,
+  title   = {AnyCamVLA: Zero-Shot Camera Adaptation for Viewpoint Robust
+             Vision-Language-Action Models},
+  author  = {Heo, Hyeongjun and Woo, Seungyeon and Kim, Sang Min and
+             Kim, Junho and Lee, Junho and Lee, Yonghyeon and Kim, Young Min},
+  journal = {arXiv preprint arXiv:2603.05868},
+  year    = {2026}
+}</code></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      function copyBibtex(btn) {
+        var text = document.getElementById('bibtex-content').innerText;
+        navigator.clipboard.writeText(text).then(function () {
+          var old = btn.innerText;
+          btn.innerText = 'Copied!';
+          setTimeout(function () { btn.innerText = old; }, 1500);
+        });
+      }
+
+      // Real-world task carousel
+      new Swiper('.realworld-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        loop: true,
+        grabCursor: true,
+        navigation: {
+          nextEl: '.realworld-swiper .swiper-button-next',
+          prevEl: '.realworld-swiper .swiper-button-prev',
+        },
+        pagination: {
+          el: '.realworld-swiper .swiper-pagination',
+          clickable: true,
+        },
+      });
+
+      // Handheld-camera carousel
+      new Swiper('.handheld-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        loop: true,
+        grabCursor: true,
+        navigation: {
+          nextEl: '.handheld-swiper .swiper-button-next',
+          prevEl: '.handheld-swiper .swiper-button-prev',
+        },
+        pagination: {
+          el: '.handheld-swiper .swiper-pagination',
+          clickable: true,
+        },
+      });
+    </script>
 
     <!-- Footer section -->
     <footer class="footer" style="padding-top: 1rem">
