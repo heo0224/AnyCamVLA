@@ -1,3 +1,9 @@
+/* Prevent any wide element (e.g. data tables) from forcing horizontal page scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 .hero {
   margin-bottom: -50px;  /* Adjust space below this section */
 }
