@@ -4,8 +4,11 @@ html, body {
   max-width: 100%;
 }
 
+html { scroll-behavior: smooth; }
+
 .hero {
   margin-bottom: -50px;  /* Adjust space below this section */
+  background: radial-gradient(1100px 380px at 50% -12%, #edf0fb 0%, rgba(237, 240, 251, 0) 72%);
 }
 
 .section {
@@ -133,12 +136,15 @@ html, body {
   margin-left: 0.1rem;
   margin-right: 0.1rem;
   margin-bottom: 0.5rem;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
 }
 
 .link-button:hover {
   color: #f5f5f5;
-  background-color: #143163;
-  border-color: #143163;
+  background-color: #1c3f7e;
+  border-color: #1c3f7e;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(20, 49, 99, 0.30);
 }
 
 .bibtex-box {
@@ -431,6 +437,14 @@ html, body {
   overflow-x: auto;
   white-space: pre;
   position: relative;
+}
+/* Match BibTeX text colour to the rest of the page (override Bulma's red <code>) */
+.bibtex-box code {
+  color: #363636;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
 }
 .copy-btn {
   position: absolute;
