@@ -19,7 +19,7 @@
     
     <!-- Bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css" />
-    <link rel="stylesheet" href="./css/styles.css?v=3" />
+    <link rel="stylesheet" href="./css/styles.css?v=4" />
     <script src="./js/bulma_toggle.js?v=2"></script>
     
     <!-- Font Awesome -->
@@ -43,10 +43,10 @@
           <h1 class="title publication-title" style="font-size: clamp(1.85rem, 3vw, 2.2rem); line-height: 1.2;">
             <span style="display: block;">
               <img src="./assets/camera_switch_96dp.png" alt="icon" style="width: 0.92em; vertical-align: middle; margin-right: 0.18em;">
-              AnyCamVLA: Zero-Shot Camera Adaptation for Viewpoint
+              AnyCamVLA: Zero-Shot Camera Adaptation for
             </span>
             <span style="display: block;">
-              Robust Vision-Language-Action Models
+              Viewpoint Robust Vision-Language-Action Models
             </span>
           </h1>
           <div class="is-size-4-tablet publication-institute">
@@ -101,6 +101,21 @@
               Your browser does not support the video tag.
             </video>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TL;DR ===================== -->
+    <section class="section" id="tldr">
+      <div class="container is-max-desktop">
+        <div class="tldr-box">
+          <span class="tldr-tag">TL;DR</span>
+          <p>
+            Fine-tuned VLAs break when the camera moves. <b>AnyCamVLA</b> keeps the policy <b>frozen</b> and instead
+            adapts the <i>input view</i> in real time&mdash;a feed-forward novel view synthesis model re-renders the
+            live camera into the policy's training viewpoint&mdash;making <b>any RGB-based VLA viewpoint-robust</b>
+            with no extra demonstrations, policy fine-tuning, or architectural changes.
+          </p>
         </div>
       </div>
     </section>

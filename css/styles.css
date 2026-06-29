@@ -189,6 +189,38 @@ html { scroll-behavior: smooth; }
   line-height: 1.7;
 }
 
+/* TL;DR callout */
+.tldr-box {
+  max-width: 780px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #f5f7fd 0%, #eef1fb 100%);
+  border: 1px solid #dfe4f4;
+  border-radius: 14px;
+  padding: 1.5rem 1.9rem;
+  text-align: left;
+  box-shadow: 0 3px 16px rgba(20, 39, 78, 0.06);
+}
+.tldr-tag {
+  display: inline-block;
+  background: #143163;
+  color: #fff;
+  font-family: 'Quicksand';
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 0.8rem;
+}
+.tldr-box p {
+  font-family: 'Quicksand';
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #2f3556;
+  margin: 0;
+}
+.tldr-box b { color: #14274e; }
+
 /* Figures */
 .paper-figure {
   margin: 1.5rem auto 0.5rem auto;
