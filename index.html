@@ -19,7 +19,7 @@
     
     <!-- Bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css" />
-    <link rel="stylesheet" href="./css/styles.css?v=2" />
+    <link rel="stylesheet" href="./css/styles.css?v=3" />
     <script src="./js/bulma_toggle.js?v=2"></script>
     
     <!-- Font Awesome -->
@@ -202,7 +202,7 @@
         </h2>
         <div class="paper-figure" style="margin-top:1rem;">
           <video src="./assets/videos/CameraAdaptation.mp4" autoplay loop muted playsinline controls
-                 poster="./assets/images/CameraAdaptation_poster.jpg" style="max-width:100%;height:auto;border-radius:8px;">
+                 poster="./assets/images/CameraAdaptation_poster.jpg" style="width:80%;max-width:80%;height:auto;border-radius:8px;">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -316,7 +316,87 @@
           demonstrations or training.</p>
         </div>
         <div class="paper-figure">
-          <img src="./assets/images/finetuning.png" alt="Zero-shot adaptation vs. fine-tuning with data augmentation" style="width:100%;max-width:720px;height:auto;" />
+          <div class="ft-panels">
+            <figure class="ft-panel"><svg viewBox="0 0 320 290" xmlns="http://www.w3.org/2000/svg" font-family="Quicksand, sans-serif">
+<text x="176" y="20" text-anchor="middle" font-size="14" font-weight="600" fill="#14274e">Original View</text>
+<line x1="46" y1="236.0" x2="306" y2="236.0" stroke="#e6e6ec" stroke-width="1"/>
+<text x="39" y="239.5" text-anchor="end" font-size="10.5" fill="#666">40</text>
+<line x1="46" y1="170.7" x2="306" y2="170.7" stroke="#e6e6ec" stroke-width="1"/>
+<text x="39" y="174.2" text-anchor="end" font-size="10.5" fill="#666">60</text>
+<line x1="46" y1="105.3" x2="306" y2="105.3" stroke="#e6e6ec" stroke-width="1"/>
+<text x="39" y="108.8" text-anchor="end" font-size="10.5" fill="#666">80</text>
+<line x1="46" y1="40.0" x2="306" y2="40.0" stroke="#e6e6ec" stroke-width="1"/>
+<text x="39" y="43.5" text-anchor="end" font-size="10.5" fill="#666">100</text>
+<line x1="46" y1="40" x2="46" y2="236" stroke="#9aa0b4" stroke-width="1.2"/>
+<line x1="46" y1="236" x2="306" y2="236" stroke="#9aa0b4" stroke-width="1.2"/>
+<line x1="46.0" y1="236" x2="46.0" y2="240" stroke="#9aa0b4" stroke-width="1"/>
+<text x="46.0" y="253.0" text-anchor="middle" font-size="10.5" fill="#666">0</text>
+<line x1="72.0" y1="236" x2="72.0" y2="240" stroke="#9aa0b4" stroke-width="1"/>
+<text x="72.0" y="253.0" text-anchor="middle" font-size="10.5" fill="#666">1K</text>
+<line x1="176.0" y1="236" x2="176.0" y2="240" stroke="#9aa0b4" stroke-width="1"/>
+<text x="176.0" y="253.0" text-anchor="middle" font-size="10.5" fill="#666">5K</text>
+<line x1="306.0" y1="236" x2="306.0" y2="240" stroke="#9aa0b4" stroke-width="1"/>
+<text x="306.0" y="253.0" text-anchor="middle" font-size="10.5" fill="#666">10K</text>
+<text x="176" y="284" text-anchor="middle" font-size="11.5" fill="#444">Fine-tuning steps</text>
+<text transform="translate(13,138) rotate(-90)" text-anchor="middle" font-size="11" fill="#444">Task Success Rate (%)</text>
+<line x1="46" y1="64.8" x2="306" y2="64.8" stroke="#d2691e" stroke-width="2" stroke-dasharray="5 3"/>
+<polyline points="46.0,68.1 72.0,73.3 176.0,105.3 306.0,150.4" fill="none" stroke="#2c6fbb" stroke-width="2.1"/>
+<circle cx="46.0" cy="68.1" r="3.4" fill="#2c6fbb"/>
+<circle cx="72.0" cy="73.3" r="3.4" fill="#2c6fbb"/>
+<circle cx="176.0" cy="105.3" r="3.4" fill="#2c6fbb"/>
+<circle cx="306.0" cy="150.4" r="3.4" fill="#2c6fbb"/>
+<polyline points="46.0,68.1 72.0,68.1 176.0,100.8 306.0,106.0" fill="none" stroke="#e0a325" stroke-width="2.1"/>
+<rect x="42.8" y="64.9" width="6.4" height="6.4" fill="#e0a325"/>
+<rect x="68.8" y="64.9" width="6.4" height="6.4" fill="#e0a325"/>
+<rect x="172.8" y="97.6" width="6.4" height="6.4" fill="#e0a325"/>
+<rect x="302.8" y="102.8" width="6.4" height="6.4" fill="#e0a325"/>
+<polyline points="46.0,68.1 72.0,74.6 176.0,116.4 306.0,106.6" fill="none" stroke="#3a9a6d" stroke-width="2.1"/>
+<polygon points="46.0,64.2 42.4,70.8 49.6,70.8" fill="#3a9a6d"/>
+<polygon points="72.0,70.7 68.4,77.3 75.6,77.3" fill="#3a9a6d"/>
+<polygon points="176.0,112.5 172.4,119.1 179.6,119.1" fill="#3a9a6d"/>
+<polygon points="306.0,102.7 302.4,109.3 309.6,109.3" fill="#3a9a6d"/>
+</svg></figure>
+            <figure class="ft-panel"><svg viewBox="0 0 320 290" xmlns="http://www.w3.org/2000/svg" font-family="Quicksand, sans-serif">
+<text x="176" y="20" text-anchor="middle" font-size="14" font-weight="600" fill="#14274e">Unseen Views</text>
+<line x1="46" y1="236.0" x2="306" y2="236.0" stroke="#e6e6ec" stroke-width="1"/>
+<text x="39" y="239.5" text-anchor="end" font-size="10.5" fill="#666">40</text>
+<line x1="46" y1="170.7" x2="306" y2="170.7" stroke="#e6e6ec" stroke-width="1"/>
+<text x="39" y="174.2" text-anchor="end" font-size="10.5" fill="#666">60</text>
+<line x1="46" y1="105.3" x2="306" y2="105.3" stroke="#e6e6ec" stroke-width="1"/>
+<text x="39" y="108.8" text-anchor="end" font-size="10.5" fill="#666">80</text>
+<line x1="46" y1="40.0" x2="306" y2="40.0" stroke="#e6e6ec" stroke-width="1"/>
+<text x="39" y="43.5" text-anchor="end" font-size="10.5" fill="#666">100</text>
+<line x1="46" y1="40" x2="46" y2="236" stroke="#9aa0b4" stroke-width="1.2"/>
+<line x1="46" y1="236" x2="306" y2="236" stroke="#9aa0b4" stroke-width="1.2"/>
+<line x1="46.0" y1="236" x2="46.0" y2="240" stroke="#9aa0b4" stroke-width="1"/>
+<text x="46.0" y="253.0" text-anchor="middle" font-size="10.5" fill="#666">0</text>
+<line x1="72.0" y1="236" x2="72.0" y2="240" stroke="#9aa0b4" stroke-width="1"/>
+<text x="72.0" y="253.0" text-anchor="middle" font-size="10.5" fill="#666">1K</text>
+<line x1="176.0" y1="236" x2="176.0" y2="240" stroke="#9aa0b4" stroke-width="1"/>
+<text x="176.0" y="253.0" text-anchor="middle" font-size="10.5" fill="#666">5K</text>
+<line x1="306.0" y1="236" x2="306.0" y2="240" stroke="#9aa0b4" stroke-width="1"/>
+<text x="306.0" y="253.0" text-anchor="middle" font-size="10.5" fill="#666">10K</text>
+<text x="176" y="284" text-anchor="middle" font-size="11.5" fill="#444">Fine-tuning steps</text>
+<text transform="translate(13,138) rotate(-90)" text-anchor="middle" font-size="11" fill="#444">Task Success Rate (%)</text>
+<line x1="46" y1="77.2" x2="306" y2="77.2" stroke="#d2691e" stroke-width="2" stroke-dasharray="5 3"/>
+<polyline points="46.0,206.6 72.0,195.2 176.0,173.3 306.0,209.5" fill="none" stroke="#2c6fbb" stroke-width="2.1"/>
+<circle cx="46.0" cy="206.6" r="3.4" fill="#2c6fbb"/>
+<circle cx="72.0" cy="195.2" r="3.4" fill="#2c6fbb"/>
+<circle cx="176.0" cy="173.3" r="3.4" fill="#2c6fbb"/>
+<circle cx="306.0" cy="209.5" r="3.4" fill="#2c6fbb"/>
+<polyline points="46.0,206.6 72.0,170.7 176.0,140.6 306.0,131.8" fill="none" stroke="#e0a325" stroke-width="2.1"/>
+<rect x="42.8" y="203.4" width="6.4" height="6.4" fill="#e0a325"/>
+<rect x="68.8" y="167.5" width="6.4" height="6.4" fill="#e0a325"/>
+<rect x="172.8" y="137.4" width="6.4" height="6.4" fill="#e0a325"/>
+<rect x="302.8" y="128.6" width="6.4" height="6.4" fill="#e0a325"/>
+<polyline points="46.0,206.6 72.0,161.2 176.0,131.1 306.0,124.6" fill="none" stroke="#3a9a6d" stroke-width="2.1"/>
+<polygon points="46.0,202.7 42.4,209.3 49.6,209.3" fill="#3a9a6d"/>
+<polygon points="72.0,157.3 68.4,163.9 75.6,163.9" fill="#3a9a6d"/>
+<polygon points="176.0,127.2 172.4,133.8 179.6,133.8" fill="#3a9a6d"/>
+<polygon points="306.0,120.7 302.4,127.3 309.6,127.3" fill="#3a9a6d"/>
+</svg></figure>
+          </div>
+          <div class="ft-legend"><span class="ft-li"><svg width="22" height="12"><line x1="1" y1="6" x2="21" y2="6" stroke="#2c6fbb" stroke-width="2.1"/><circle cx="11" cy="6" r="3.4" fill="#2c6fbb"/></svg> &pi;<sub>0.5</sub><sup>*</sup> (1 task)</span><span class="ft-li"><svg width="22" height="12"><line x1="1" y1="6" x2="21" y2="6" stroke="#e0a325" stroke-width="2.1"/><rect x="7.8" y="2.8" width="6.4" height="6.4" fill="#e0a325"/></svg> &pi;<sub>0.5</sub><sup>*</sup> (5 tasks)</span><span class="ft-li"><svg width="22" height="12"><line x1="1" y1="6" x2="21" y2="6" stroke="#3a9a6d" stroke-width="2.1"/><polygon points="11,2.1 7.4,8.7 14.6,8.7" fill="#3a9a6d"/></svg> &pi;<sub>0.5</sub><sup>*</sup> (10 tasks)</span><span class="ft-li"><svg width="22" height="12"><line x1="1" y1="6" x2="21" y2="6" stroke="#d2691e" stroke-width="2.2" stroke-dasharray="5 3"/></svg> <b style="color:#d2691e;">Ours-&pi;</b> (zero-shot)</span></div>
         </div>
         <p class="figure-caption">
           Fine-tuning &pi;<sub>0.5</sub> on viewpoint-augmented data (&pi;<sub>0.5</sub><sup>*</sup>) over 1 / 5 / 10

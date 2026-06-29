@@ -205,6 +205,32 @@ html, body {
   color: #14274e;
 }
 
+/* Fine-tuning chart (inline, responsive SVG) */
+.ft-panels {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.ft-panel {
+  flex: 1 1 300px;
+  max-width: 420px;
+  margin: 0;
+}
+.ft-panel svg { width: 100%; height: auto; display: block; }
+.ft-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.4rem;
+  margin-top: 0.7rem;
+  font-family: 'Quicksand';
+  font-size: 0.92rem;
+  color: #14274e;
+}
+.ft-li { display: inline-flex; align-items: center; gap: 0.35rem; white-space: nowrap; }
+.ft-li svg { vertical-align: middle; }
+
 /* Tables */
 .table-wrapper {
   overflow-x: auto;
@@ -482,6 +508,9 @@ html, body {
   margin-top: 0.4rem;
 }
 @media screen and (max-width: 768px) {
-  .handheld-row { gap: 0.3rem; }
-  .handheld-row figcaption { font-size: 0.72rem; }
+  /* 2 panels on the first row (input + synthesized), policy execution full-width below */
+  .handheld-row { flex-wrap: wrap; gap: 0.5rem; }
+  .handheld-row .p-sq { flex: 1 1 calc(50% - 0.25rem); }
+  .handheld-row .p-wide { flex: 1 1 100%; max-width: 100%; margin-top: 0.2rem; }
+  .handheld-row figcaption { font-size: 0.78rem; }
 }
