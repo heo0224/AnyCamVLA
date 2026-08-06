@@ -56,7 +56,7 @@ uv pip install -e openpi/packages/openpi-client
 
 Notes:
 - LIBERO's own `requirements.txt` is **not** synced directly (it pins `einops==0.4.1`, which conflicts with LVSM); its dependencies are already included in `openpi/examples/libero/requirements.txt`.
-- If building `evdev` fails with a `crypt.h` error (e.g. a conda compiler is on your `PATH`), force the system compiler: `CC=/usr/bin/cc uv pip sync ...`.
+- If building `evdev` or `egl-probe` fails (e.g. a conda toolchain — `cc`, `cmake` — shadows the system one on your `PATH`), prefer the system toolchain for the sync: `PATH="/usr/bin:$PATH" uv pip sync ...`.
 - LIBERO is used via `PYTHONPATH` (not pip-installed). LIBERO stores its dataset paths in `~/.libero/config.yaml`; if the file already exists it takes precedence, so make sure it points to the LIBERO tree (bddl files / init states) you intend to use.
 - If off-screen rendering fails with an EGL error, prefix commands with `MUJOCO_GL=glx`.
 
