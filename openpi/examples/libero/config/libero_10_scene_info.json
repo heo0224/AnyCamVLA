@@ -1,0 +1,222 @@
+{
+  "task_0": {
+    "task_id": 0,
+    "task_description": "put both the alphabet soup and the tomato sauce in the basket",
+    "table_surface_height": 0.0,
+    "robot_base_z": 0.42,
+    "robot_base_position": [
+      -0.51,
+      0.0,
+      0.42
+    ],
+    "agentview_camera_z": 0.96,
+    "end_effector_initial_position": [
+      -0.03749909448654079,
+      -0.005375515997325039,
+      0.7129679373389848
+    ],
+    "scene_center": [
+      -0.04835757304670027,
+      -0.022561772859753068,
+      0.3404545454545454
+    ]
+  },
+  "task_1": {
+    "task_id": 1,
+    "task_description": "put both the cream cheese box and the butter in the basket",
+    "table_surface_height": 0.0,
+    "robot_base_z": 0.42,
+    "robot_base_position": [
+      -0.51,
+      0.0,
+      0.42
+    ],
+    "agentview_camera_z": 0.96,
+    "end_effector_initial_position": [
+      -0.05743657357710773,
+      -0.013975804244636597,
+      0.6794593845357239
+    ],
+    "scene_center": [
+      -0.04540001012993758,
+      -0.01863019760521136,
+      0.3404545454545454
+    ]
+  },
+  "task_2": {
+    "task_id": 2,
+    "task_description": "turn on the stove and put the moka pot on it",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.19581117204664583,
+      0.025740657461155274,
+      1.1973685206647855
+    ],
+    "scene_center": [
+      -0.2881485731597092,
+      0.04952471519494701,
+      0.9202727272727272
+    ]
+  },
+  "task_3": {
+    "task_id": 3,
+    "task_description": "put the black bowl in the bottom drawer of the cabinet and close it",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.22170535739252822,
+      -0.020332061559948725,
+      1.1674636012697022
+    ],
+    "scene_center": [
+      -0.2334004064426407,
+      0.059191067197405335,
+      0.9202499999999999
+    ]
+  },
+  "task_4": {
+    "task_id": 4,
+    "task_description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+    "table_surface_height": 0.0,
+    "robot_base_z": 0.42,
+    "robot_base_position": [
+      -0.51,
+      0.0,
+      0.42
+    ],
+    "agentview_camera_z": 0.96,
+    "end_effector_initial_position": [
+      -0.05172618406637439,
+      -0.014735965932690668,
+      0.687985707669292
+    ],
+    "scene_center": [
+      -0.07081332531661073,
+      0.022246570793932576,
+      0.3
+    ]
+  },
+  "task_5": {
+    "task_id": 5,
+    "task_description": "pick up the book and place it in the back compartment of the caddy",
+    "table_surface_height": 1.4022359989429662,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.75,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.2988757271530292,
+      0.01758272105440385,
+      1.1730324019099356
+    ],
+    "scene_center": [
+      -0.4652171549698516,
+      0.00417182251502082,
+      0.806125
+    ]
+  },
+  "task_6": {
+    "task_id": 6,
+    "task_description": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+    "table_surface_height": 0.0,
+    "robot_base_z": 0.42,
+    "robot_base_position": [
+      -0.51,
+      0.0,
+      0.42
+    ],
+    "agentview_camera_z": 0.96,
+    "end_effector_initial_position": [
+      -0.04997828994024984,
+      -0.010648045816463145,
+      0.7029482462558361
+    ],
+    "scene_center": [
+      -0.06505924483751883,
+      0.036748366696269845,
+      0.2742857142857143
+    ]
+  },
+  "task_7": {
+    "task_id": 7,
+    "task_description": "put both the alphabet soup and the cream cheese box in the basket",
+    "table_surface_height": 0.0,
+    "robot_base_z": 0.42,
+    "robot_base_position": [
+      -0.51,
+      0.0,
+      0.42
+    ],
+    "agentview_camera_z": 0.96,
+    "end_effector_initial_position": [
+      -0.07063885558199579,
+      0.015429097010739254,
+      0.6614534543609351
+    ],
+    "scene_center": [
+      -0.05525048182606112,
+      0.01479244398254026,
+      0.29312499999999997
+    ]
+  },
+  "task_8": {
+    "task_id": 8,
+    "task_description": "put both moka pots on the stove",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.19909992671762589,
+      0.016280741617720647,
+      1.185910715241526
+    ],
+    "scene_center": [
+      -0.287488884305466,
+      -0.048583237104505676,
+      0.9202727272727272
+    ]
+  },
+  "task_9": {
+    "task_id": 9,
+    "task_description": "put the yellow and white mug in the microwave and close it",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.21269637395596308,
+      -0.007394406010194443,
+      1.1614472033938363
+    ],
+    "scene_center": [
+      -0.3257583881760089,
+      0.03743429950482612,
+      0.9376666666666666
+    ]
+  }
+}

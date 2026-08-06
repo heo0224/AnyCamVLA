@@ -1,0 +1,222 @@
+{
+  "task_0": {
+    "task_id": 0,
+    "task_description": "open the middle drawer of the cabinet",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.2185822775220459,
+      0.012908041244027597,
+      1.17129994105542
+    ],
+    "scene_center": [
+      -0.24834602081271745,
+      -0.016979698675305906,
+      0.9204444444444442
+    ]
+  },
+  "task_1": {
+    "task_id": 1,
+    "task_description": "put the bowl on the stove",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.22239829752509227,
+      -0.01837469509097131,
+      1.1544500291666169
+    ],
+    "scene_center": [
+      -0.2476567321580032,
+      -0.017844824877973942,
+      0.9204444444444442
+    ]
+  },
+  "task_2": {
+    "task_id": 2,
+    "task_description": "put the wine bottle on top of the cabinet",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.21222328543465,
+      -0.018624106724791863,
+      1.156614512304778
+    ],
+    "scene_center": [
+      -0.24737828610947077,
+      -0.01714167750065138,
+      0.9204444444444442
+    ]
+  },
+  "task_3": {
+    "task_id": 3,
+    "task_description": "open the top drawer and put the bowl inside",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.19826559339772853,
+      -0.011972968846800882,
+      1.1782284554826559
+    ],
+    "scene_center": [
+      -0.2484467367606508,
+      -0.014439382394613556,
+      0.9204444444444442
+    ]
+  },
+  "task_4": {
+    "task_id": 4,
+    "task_description": "put the bowl on top of the cabinet",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.21018162613285135,
+      -0.021315770315732688,
+      1.1667545940910649
+    ],
+    "scene_center": [
+      -0.24843781928202752,
+      -0.016865653464987987,
+      0.9204444444444442
+    ]
+  },
+  "task_5": {
+    "task_id": 5,
+    "task_description": "push the plate to the front of the stove",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.21816422195107368,
+      -0.0051256796556841885,
+      1.1674031909870322
+    ],
+    "scene_center": [
+      -0.24663594335691297,
+      -0.01924010326575444,
+      0.9204444444444442
+    ]
+  },
+  "task_6": {
+    "task_id": 6,
+    "task_description": "put the cream cheese in the bowl",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.20368590941819165,
+      -0.018349300896829412,
+      1.1730600184211655
+    ],
+    "scene_center": [
+      -0.24729292169057793,
+      -0.016556057611753664,
+      0.9204444444444442
+    ]
+  },
+  "task_7": {
+    "task_id": 7,
+    "task_description": "turn on the stove",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.2105427031880551,
+      -0.003794161247852902,
+      1.1946378287050683
+    ],
+    "scene_center": [
+      -0.24599368804818134,
+      -0.01695944842608961,
+      0.9204444444444442
+    ]
+  },
+  "task_8": {
+    "task_id": 8,
+    "task_description": "put the bowl on the plate",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.2055647390690678,
+      0.002328309373228001,
+      1.1813409566497877
+    ],
+    "scene_center": [
+      -0.24740946690439522,
+      -0.01777764163202703,
+      0.9204444444444442
+    ]
+  },
+  "task_9": {
+    "task_id": 9,
+    "task_description": "put the wine bottle on the rack",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.21183769440366387,
+      -0.001259345081796377,
+      1.1698246922846827
+    ],
+    "scene_center": [
+      -0.24821003554194768,
+      -0.015322843417313773,
+      0.9204444444444442
+    ]
+  }
+}

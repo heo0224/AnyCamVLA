@@ -1,0 +1,222 @@
+{
+  "task_0": {
+    "task_id": 0,
+    "task_description": "pick up the alphabet soup and place it in the basket",
+    "table_surface_height": null,
+    "robot_base_z": 0.0,
+    "robot_base_position": [
+      -0.6,
+      0.0,
+      0.0
+    ],
+    "agentview_camera_z": 0.65,
+    "end_effector_initial_position": [
+      -0.1564437536703257,
+      -0.008796156048331612,
+      0.2421925486863506
+    ],
+    "scene_center": [
+      -0.019586090098544773,
+      -0.033849744894382625,
+      0.01875
+    ]
+  },
+  "task_1": {
+    "task_id": 1,
+    "task_description": "pick up the cream cheese and place it in the basket",
+    "table_surface_height": null,
+    "robot_base_z": 0.0,
+    "robot_base_position": [
+      -0.6,
+      0.0,
+      0.0
+    ],
+    "agentview_camera_z": 0.65,
+    "end_effector_initial_position": [
+      -0.1333152865260226,
+      0.00042489250830865706,
+      0.27639822911292344
+    ],
+    "scene_center": [
+      -0.022272677863143343,
+      -0.032893307687811534,
+      0.01875
+    ]
+  },
+  "task_2": {
+    "task_id": 2,
+    "task_description": "pick up the salad dressing and place it in the basket",
+    "table_surface_height": null,
+    "robot_base_z": 0.0,
+    "robot_base_position": [
+      -0.6,
+      0.0,
+      0.0
+    ],
+    "agentview_camera_z": 0.65,
+    "end_effector_initial_position": [
+      -0.1478703524647578,
+      0.00643745821015187,
+      0.2604545982107929
+    ],
+    "scene_center": [
+      -0.02322442952533008,
+      -0.03341556280996011,
+      0.023749999999999997
+    ]
+  },
+  "task_3": {
+    "task_id": 3,
+    "task_description": "pick up the bbq sauce and place it in the basket",
+    "table_surface_height": null,
+    "robot_base_z": 0.0,
+    "robot_base_position": [
+      -0.6,
+      0.0,
+      0.0
+    ],
+    "agentview_camera_z": 0.65,
+    "end_effector_initial_position": [
+      -0.16622576245367948,
+      0.0023439461842467884,
+      0.2451397414142153
+    ],
+    "scene_center": [
+      -0.02210456718069306,
+      -0.03310728358587383,
+      0.02375
+    ]
+  },
+  "task_4": {
+    "task_id": 4,
+    "task_description": "pick up the ketchup and place it in the basket",
+    "table_surface_height": null,
+    "robot_base_z": 0.0,
+    "robot_base_position": [
+      -0.6,
+      0.0,
+      0.0
+    ],
+    "agentview_camera_z": 0.65,
+    "end_effector_initial_position": [
+      -0.14847938662440952,
+      0.010469954003808322,
+      0.2646104065147842
+    ],
+    "scene_center": [
+      -0.022025874717084618,
+      -0.03336181577606857,
+      0.023749999999999997
+    ]
+  },
+  "task_5": {
+    "task_id": 5,
+    "task_description": "pick up the tomato sauce and place it in the basket",
+    "table_surface_height": null,
+    "robot_base_z": 0.0,
+    "robot_base_position": [
+      -0.6,
+      0.0,
+      0.0
+    ],
+    "agentview_camera_z": 0.65,
+    "end_effector_initial_position": [
+      -0.1569617241920781,
+      -0.0010527489699236363,
+      0.25642331213948355
+    ],
+    "scene_center": [
+      -0.020094326348013104,
+      -0.032065960538808315,
+      0.025625
+    ]
+  },
+  "task_6": {
+    "task_id": 6,
+    "task_description": "pick up the butter and place it in the basket",
+    "table_surface_height": null,
+    "robot_base_z": 0.0,
+    "robot_base_position": [
+      -0.6,
+      0.0,
+      0.0
+    ],
+    "agentview_camera_z": 0.65,
+    "end_effector_initial_position": [
+      -0.15392811704155876,
+      -0.0006492343891413258,
+      0.25359348517137664
+    ],
+    "scene_center": [
+      -0.0191451388997271,
+      -0.03397200857290754,
+      0.025625
+    ]
+  },
+  "task_7": {
+    "task_id": 7,
+    "task_description": "pick up the milk and place it in the basket",
+    "table_surface_height": null,
+    "robot_base_z": 0.0,
+    "robot_base_position": [
+      -0.6,
+      0.0,
+      0.0
+    ],
+    "agentview_camera_z": 0.65,
+    "end_effector_initial_position": [
+      -0.15637044335803707,
+      -0.011496060176595936,
+      0.2534033585599692
+    ],
+    "scene_center": [
+      -0.020370721874808415,
+      -0.033210588672829874,
+      0.021249999999999998
+    ]
+  },
+  "task_8": {
+    "task_id": 8,
+    "task_description": "pick up the chocolate pudding and place it in the basket",
+    "table_surface_height": null,
+    "robot_base_z": 0.0,
+    "robot_base_position": [
+      -0.6,
+      0.0,
+      0.0
+    ],
+    "agentview_camera_z": 0.65,
+    "end_effector_initial_position": [
+      -0.16358111264977904,
+      -0.013699562329564726,
+      0.2525337638489916
+    ],
+    "scene_center": [
+      -0.01893440586601993,
+      -0.03435612131768864,
+      0.028124999999999997
+    ]
+  },
+  "task_9": {
+    "task_id": 9,
+    "task_description": "pick up the orange juice and place it in the basket",
+    "table_surface_height": null,
+    "robot_base_z": 0.0,
+    "robot_base_position": [
+      -0.6,
+      0.0,
+      0.0
+    ],
+    "agentview_camera_z": 0.65,
+    "end_effector_initial_position": [
+      -0.15576316852121325,
+      -0.02124832437908321,
+      0.2593324960905493
+    ],
+    "scene_center": [
+      -0.022628637632838327,
+      -0.0347205389156348,
+      0.025625
+    ]
+  }
+}

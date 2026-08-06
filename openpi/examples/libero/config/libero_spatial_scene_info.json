@@ -1,0 +1,222 @@
+{
+  "task_0": {
+    "task_id": 0,
+    "task_description": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.2108148623929717,
+      -0.01515982145785171,
+      1.1756771209255328
+    ],
+    "scene_center": [
+      -0.23411967292695943,
+      -0.038750508915907825,
+      0.9251666666666664
+    ]
+  },
+  "task_1": {
+    "task_id": 1,
+    "task_description": "pick up the black bowl next to the ramekin and place it on the plate",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.20688171409588316,
+      0.007598406879420967,
+      1.190478527375343
+    ],
+    "scene_center": [
+      -0.22134244200368067,
+      -0.05538711959952633,
+      0.9251666666666664
+    ]
+  },
+  "task_2": {
+    "task_id": 2,
+    "task_description": "pick up the black bowl from table center and place it on the plate",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.20868807640486212,
+      -0.0058205523193986895,
+      1.1898196504467724
+    ],
+    "scene_center": [
+      -0.22257172368182954,
+      -0.04966160309927438,
+      0.9251666666666664
+    ]
+  },
+  "task_3": {
+    "task_id": 3,
+    "task_description": "pick up the black bowl on the cookie box and place it on the plate",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.2031085787842339,
+      -0.010850233834459452,
+      1.176076575091043
+    ],
+    "scene_center": [
+      -0.21697373972448653,
+      -0.08130116976769049,
+      0.9458066666666666
+    ]
+  },
+  "task_4": {
+    "task_id": 4,
+    "task_description": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.20309773791141197,
+      7.282535868331709e-05,
+      1.1725420599419447
+    ],
+    "scene_center": [
+      -0.2053352245929847,
+      -0.08420076555619829,
+      0.9497305555555554
+    ]
+  },
+  "task_5": {
+    "task_id": 5,
+    "task_description": "pick up the black bowl on the ramekin and place it on the plate",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.21512629744939726,
+      0.0073693716984816835,
+      1.1637081699062894
+    ],
+    "scene_center": [
+      -0.22923046605756298,
+      -0.0530031224648896,
+      0.9373888888888887
+    ]
+  },
+  "task_6": {
+    "task_id": 6,
+    "task_description": "pick up the black bowl next to the cookie box and place it on the plate",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.20624929452738186,
+      -0.010933044121609616,
+      1.18146938948386
+    ],
+    "scene_center": [
+      -0.22817157406287134,
+      -0.07905834480622442,
+      0.9273888888888888
+    ]
+  },
+  "task_7": {
+    "task_id": 7,
+    "task_description": "pick up the black bowl on the stove and place it on the plate",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.22169248069800715,
+      0.021170149522612,
+      1.151136832428502
+    ],
+    "scene_center": [
+      -0.23439077568893796,
+      -0.08914675252650767,
+      0.9419177777777777
+    ]
+  },
+  "task_8": {
+    "task_id": 8,
+    "task_description": "pick up the black bowl next to the plate and place it on the plate",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.2072277178007278,
+      -0.018277695200415136,
+      1.1814243103671729
+    ],
+    "scene_center": [
+      -0.22872228096334288,
+      -0.03271348995549794,
+      0.9251666666666664
+    ]
+  },
+  "task_9": {
+    "task_id": 9,
+    "task_description": "pick up the black bowl on the wooden cabinet and place it on the plate",
+    "table_surface_height": 0.9,
+    "robot_base_z": 0.912,
+    "robot_base_position": [
+      -0.66,
+      0.0,
+      0.912
+    ],
+    "agentview_camera_z": 1.6103500240372424,
+    "end_effector_initial_position": [
+      -0.21222314138731427,
+      -0.007258360039587556,
+      1.1806633786403533
+    ],
+    "scene_center": [
+      -0.23441076072435754,
+      -0.08815566655618817,
+      0.9419177777777777
+    ]
+  }
+}

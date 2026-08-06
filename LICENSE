@@ -1,0 +1,21 @@
+AnyCamVLA — License Notice
+
+This repository vendors and builds upon third-party projects. Each component
+keeps its original upstream license, and our modifications and additions within
+each directory are released under the same license as the component they belong
+to:
+
+1. openpi/  (from https://github.com/Physical-Intelligence/openpi)
+   Apache License 2.0 — see openpi/LICENSE
+   Gemma model weights are additionally subject to the Gemma terms of use —
+   see openpi/LICENSE_GEMMA.txt
+
+2. LVSM/  (from https://github.com/Haian-Jin/LVSM, including the finetuned
+   checkpoint distributed separately)
+   Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+   (CC BY-NC-SA 4.0) — see LVSM/LICENSE.md
+   Note: this is a NON-COMMERCIAL license.
+
+3. openpi/third_party/libero/  (from
+   https://github.com/Lifelong-Robot-Learning/LIBERO)
+   MIT License — see openpi/third_party/libero/LICENSE

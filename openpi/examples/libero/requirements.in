@@ -1,0 +1,31 @@
+imageio[ffmpeg]
+numpy==1.22.4
+tqdm
+tyro
+PyYaml
+opencv-python==4.6.0.66
+torch
+torchvision
+torchaudio
+robosuite==1.4.1
+matplotlib==3.5.3
+# LIBERO dependencies (third_party/libero is a pristine submodule; its
+# requirements.txt pins einops==0.4.1 which conflicts with LVSM, so its
+# deps are absorbed here instead of being synced directly)
+hydra-core==1.2.0
+wandb==0.13.1
+transformers==4.21.1
+robomimic==0.2.0
+thop==0.1.1.post2209072238
+bddl==1.0.1
+future==0.18.2
+cloudpickle==2.1.0
+gym==0.25.2
+# LVSM inference dependencies
+easydict==1.9
+einops==0.8.1
+jaxtyping==0.2.19
+lpips==0.1.4
+omegaconf==2.3.0
+scipy==1.10.1
+xformers==0.0.28.post1

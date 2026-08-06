@@ -1,0 +1,174 @@
+{
+    "comment": "Spherical coordinate-based camera variations for agentview camera",
+    "description": "Each variation specifies delta values for spherical coordinates (radius, theta, phi) relative to the original camera-to-scene-center configuration. The camera will look at the scene center after perturbation.",
+    "spherical": {
+        "small_closer": {
+            "agentview": {
+                "delta_radius": -0.05,
+                "delta_theta": 0.0,
+                "delta_phi": 0.0,
+                "comment": "Move 5cm closer to scene center"
+            }
+        },
+        "small_further": {
+            "agentview": {
+                "delta_radius": 0.05,
+                "delta_theta": 0.0,
+                "delta_phi": 0.0,
+                "comment": "Move 5cm further from scene center"
+            }
+        },
+        "small_left": {
+            "agentview": {
+                "delta_radius": 0.0,
+                "delta_theta": 10.0,
+                "delta_phi": 0.0,
+                "comment": "Rotate 10 degrees left (azimuth)"
+            }
+        },
+        "small_right": {
+            "agentview": {
+                "delta_radius": 0.0,
+                "delta_theta": -10.0,
+                "delta_phi": 0.0,
+                "comment": "Rotate 10 degrees right (azimuth)"
+            }
+        },
+        "small_higher": {
+            "agentview": {
+                "delta_radius": 0.0,
+                "delta_theta": 0.0,
+                "delta_phi": 10.0,
+                "comment": "Rotate 10 degrees higher (elevation)"
+            }
+        },
+        "small_lower": {
+            "agentview": {
+                "delta_radius": 0.0,
+                "delta_theta": 0.0,
+                "delta_phi": -10.0,
+                "comment": "Rotate 10 degrees lower (elevation)"
+            }
+        },
+        "medium_closer": {
+            "agentview": {
+                "delta_radius": -0.1,
+                "delta_theta": 0.0,
+                "delta_phi": 0.0,
+                "comment": "Move 10cm closer to scene center"
+            }
+        },
+        "medium_further": {
+            "agentview": {
+                "delta_radius": 0.1,
+                "delta_theta": 0.0,
+                "delta_phi": 0.0,
+                "comment": "Move 10cm further from scene center"
+            }
+        },
+        "medium_left": {
+            "agentview": {
+                "delta_radius": 0.0,
+                "delta_theta": 20.0,
+                "delta_phi": 0.0,
+                "comment": "Rotate 20 degrees left (azimuth)"
+            }
+        },
+        "medium_right": {
+            "agentview": {
+                "delta_radius": 0.0,
+                "delta_theta": -20.0,
+                "delta_phi": 0.0,
+                "comment": "Rotate 20 degrees right (azimuth)"
+            }
+        },
+        "medium_higher": {
+            "agentview": {
+                "delta_radius": 0.0,
+                "delta_theta": 0.0,
+                "delta_phi": 20.0,
+                "comment": "Rotate 20 degrees higher (elevation)"
+            }
+        },
+        "medium_lower": {
+            "agentview": {
+                "delta_radius": 0.0,
+                "delta_theta": 0.0,
+                "delta_phi": -20.0,
+                "comment": "Rotate 20 degrees lower (elevation)"
+            }
+        },
+        "large_closer": {
+            "agentview": {
+                "delta_radius": -0.2,
+                "delta_theta": 0.0,
+                "delta_phi": 0.0,
+                "comment": "Move 20cm closer to scene center"
+            }
+        },
+        "large_further": {
+            "agentview": {
+                "delta_radius": 0.2,
+                "delta_theta": 0.0,
+                "delta_phi": 0.0,
+                "comment": "Move 20cm further from scene center"
+            }
+        },
+        "large_left": {
+            "agentview": {
+                "delta_radius": 0.0,
+                "delta_theta": 30.0,
+                "delta_phi": 0.0,
+                "comment": "Rotate 30 degrees left (azimuth)"
+            }
+        },
+        "large_right": {
+            "agentview": {
+                "delta_radius": 0.0,
+                "delta_theta": -30.0,
+                "delta_phi": 0.0,
+                "comment": "Rotate 30 degrees right (azimuth)"
+            }
+        },
+        "large_higher": {
+            "agentview": {
+                "delta_radius": 0.0,
+                "delta_theta": 0.0,
+                "delta_phi": 30.0,
+                "comment": "Rotate 30 degrees higher (elevation)"
+            }
+        },
+        "large_lower": {
+            "agentview": {
+                "delta_radius": 0.0,
+                "delta_theta": 0.0,
+                "delta_phi": -30.0,
+                "comment": "Rotate 30 degrees lower (elevation)"
+            }
+        },
+        "combined_small": {
+            "agentview": {
+                "delta_radius": 0.0,
+                "delta_theta": 10.0,
+                "delta_phi": 0.0,
+                "comment": "Combined: further, right, slightly higher"
+            }
+        },
+        "combined_medium": {
+            "agentview": {
+                "delta_radius": 0.1,
+                "delta_theta": 30.0,
+                "delta_phi": 5.0,
+                "comment": "Combined: further, left, higher"
+            }
+        },
+        "combined_large": {
+            "agentview": {
+                "delta_radius": 0.15,
+                "delta_theta": 60.0,
+                "delta_phi": 10.0,
+                "comment": "Combined: further, right, higher"
+            }
+        }
+    }
+}
