@@ -1,0 +1,82 @@
+{
+    "extrinsic": {
+        "wrist_small": {
+            "agentview": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "euler": [
+                    0,
+                    0,
+                    0.0
+                ]
+            },
+            "robot0_eye_in_hand": {
+                "pos": [
+                    0.03,
+                    0.0,
+                    0.0
+                ],
+                "euler": [
+                    0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "wrist_medium": {
+            "agentview": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "euler": [
+                    0,
+                    0,
+                    0.0
+                ]
+            },
+            "robot0_eye_in_hand": {
+                "pos": [
+                    0.04,
+                    0.0,
+                    0.0
+                ],
+                "euler": [
+                    -4,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "wrist_large": {
+            "agentview": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "euler": [
+                    0,
+                    0,
+                    0.0
+                ]
+            },
+            "robot0_eye_in_hand": {
+                "pos": [
+                    0.05,
+                    0.02,
+                    0.0
+                ],
+                "euler": [
+                    -8,
+                    0.0,
+                    0.0
+                ]
+            }
+        }
+    }
+}

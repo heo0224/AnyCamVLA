@@ -99,6 +99,16 @@ python openpi/examples/libero/main.py \
 - `<suite>`: `libero_spatial`, `libero_object`, `libero_goal`, `libero_10`
 - `<level>`: `small` (Δθ=10°), `medium` (Δr=0.1m, Δθ=30°, Δφ=5°), `large` (Δr=0.15m, Δθ=60°, Δφ=10°) — see `openpi/examples/libero/config/spherical_camera_variations.json`
 
+**Wrist camera perturbation** — perturbs the wrist camera's mounting pose instead of the agentview orbit. In either command above, replace the `--args.spherical_variations combined_<level>` flag with:
+
+```bash
+  --args.camera-pose-variations wrist_<level> \
+  --args.pose_noise_config "config/wrist_camera_variations.json"
+```
+
+- `wrist_<level>`: `wrist_small` (+3cm along the mount x-axis), `wrist_medium` (+4cm, −4° roll), `wrist_large` (+5cm/+2cm, −8° roll) — see `openpi/examples/libero/config/wrist_camera_variations.json`
+- Use experiment names like `pi05/<suite>/base/wrist_<level>` and `pi05/<suite>/LVSM_LIBERO-Plus_custom/wrist_<level>`.
+
 Outputs are written to `output/<experiment-name>/`: `results.json` (per-task and total success rates), `args.yaml`, rollout videos under `videos/` (ground-truth restored view, and `*_before_nvs` / `*_after_nvs` streams when LVSM is enabled), and one-time camera geometry visualizations (`camera_vis_*.png`).
 
 **Smoke test without a policy server** (uses dummy actions; verifies env, camera perturbation, and LVSM inference end-to-end):

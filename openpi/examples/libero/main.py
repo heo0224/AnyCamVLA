@@ -66,6 +66,8 @@ class Args:
     #################################################################################################################
     # Camera variation parameters
     #################################################################################################################
+    camera_pose_variations: Optional[str] = None  # Per-camera pose noise level (e.g., 'wrist_small') from pose_noise_config
+    pose_noise_config: str = "config/wrist_camera_variations.json"  # Path to pose noise config file
     spherical_variations: Optional[str] = None  # Spherical coordinate-based variations for agentview
     spherical_config: str = "config/spherical_camera_variations.json"  # Path to spherical variation config file
     camera_names: List[str] = dataclasses.field(
@@ -184,6 +186,51 @@ def eval_libero(args: Args) -> None:
         new_cam_quat = {}
         camera_names = args.camera_names
 
+        if args.camera_pose_variations:
+            # Load POSE_NOISE_LEVELS from JSON
+            json_path = pathlib.Path(args.pose_noise_config)
+            if not json_path.is_absolute():
+                json_path = pathlib.Path(__file__).parent / json_path
+
+            with open(json_path, "r") as f:
+                POSE_NOISE_LEVELS = json.load(f)
+
+            # Convert lists back to numpy arrays
+            if "extrinsic" in POSE_NOISE_LEVELS:
+                for level in POSE_NOISE_LEVELS["extrinsic"]:
+                    for camera in POSE_NOISE_LEVELS["extrinsic"][level]:
+                        POSE_NOISE_LEVELS["extrinsic"][level][camera]["pos"] = np.array(
+                            POSE_NOISE_LEVELS["extrinsic"][level][camera]["pos"]
+                        )
+                        POSE_NOISE_LEVELS["extrinsic"][level][camera]["euler"] = np.array(
+                            POSE_NOISE_LEVELS["extrinsic"][level][camera]["euler"]
+                        )
+
+            if (
+                type(args.camera_pose_variations) == str
+                and "extrinsic" in POSE_NOISE_LEVELS
+                and args.camera_pose_variations in POSE_NOISE_LEVELS["extrinsic"]
+            ):
+                noise_level = args.camera_pose_variations
+                logging.info(f"Applying '{noise_level}' camera pose variations.")
+                for camera_name in camera_names:
+                    cam_id = env.sim.model.camera_name2id(camera_name)
+                    original_cam_pos = env.sim.model.cam_pos[cam_id].copy()
+                    original_cam_quat = env.sim.model.cam_quat[cam_id].copy()
+                    # apply small perturbations to camera position and orientation
+                    delta_cam_pos = POSE_NOISE_LEVELS["extrinsic"][noise_level][camera_name]["pos"]
+                    delta_cam_euler = POSE_NOISE_LEVELS["extrinsic"][noise_level][camera_name]["euler"]
+                    new_cam_pos[camera_name] = original_cam_pos + delta_cam_pos
+
+                    original_r = R.from_quat(
+                        original_cam_quat[[1, 2, 3, 0]]
+                    )  # MuJoCo [w, x, y, z] -> Scipy [x, y, z, w]
+                    delta_r = R.from_euler("xyz", delta_cam_euler, degrees=True)
+                    new_r = original_r * delta_r
+                    new_cam_quat[camera_name] = new_r.as_quat()[
+                        [3, 0, 1, 2]
+                    ]  # Scipy [x, y, z, w] -> MuJoCo [w, x, y, z]
+
         # Spherical coordinate-based camera variations (for agentview only)
         if args.spherical_variations:
             # Load spherical variations config
@@ -265,6 +312,12 @@ def eval_libero(args: Args) -> None:
 
             # Set initial states
             obs = env.set_init_state(initial_states[episode_idx])
+            # Apply new camera poses (from regular pose variations)
+            if args.camera_pose_variations:
+                for camera_name in camera_names:
+                    cam_id = env.sim.model.camera_name2id(camera_name)
+                    env.sim.model.cam_pos[cam_id] = new_cam_pos[camera_name]
+                    env.sim.model.cam_quat[cam_id] = new_cam_quat[camera_name]
             # Apply spherical camera variations
             if args.spherical_variations:
                 for camera_name in new_cam_pos.keys():
@@ -279,7 +332,7 @@ def eval_libero(args: Args) -> None:
             target_cameras = []
 
             for camera_name in camera_names:
-                if args.spherical_variations and camera_name in new_cam_pos:
+                if args.camera_pose_variations or (args.spherical_variations and camera_name in new_cam_pos):
                     # Get Local Reference (Original)
                     pos_ref = original_cam_pos_dict[camera_name]
                     quat_ref = original_cam_quat_dict[camera_name]  # w, x, y, z
